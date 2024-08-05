@@ -12,6 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.N8_Locketapp"
         tools:targetApi="31">
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/main_nav" />
+
         <activity
             android:name=".base.BaseActivity"
             android:exported="false" />

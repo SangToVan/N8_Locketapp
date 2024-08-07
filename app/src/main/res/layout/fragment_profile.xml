@@ -114,7 +114,67 @@
                 android:textColor="#B6B6B6"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+            <LinearLayout
+                android:id="@+id/btn_sign_out"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/bg_btn_about_top"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp">
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/ic_sign_out" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/varela"
+                    android:text="Sign out"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_back_right" />
+            </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/btn_delete_account"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/bg_btn_about_bottom"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/ic_trash_can" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/varela"
+                    android:text="Delete account"
+                    android:textColor="@color/carbon_red_500"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_back_right" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

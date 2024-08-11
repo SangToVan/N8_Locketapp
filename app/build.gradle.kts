@@ -38,13 +38,11 @@ android {
 
 dependencies {
 
-    implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
-    implementation("androidx.navigation:navigation-ui-ktx:2.6.0")
-
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
     implementation(libs.navigation.fragment)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
@@ -55,4 +53,11 @@ dependencies {
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
     implementation("com.google.firebase:firebase-analytics")
+
+    // Navigation graph
+    implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
+    implementation("androidx.navigation:navigation-ui-ktx:2.6.0")
+
+    // Carbon
+    implementation("com.github.ZieIony.carbon:carbon:3e929fcff4")
 }

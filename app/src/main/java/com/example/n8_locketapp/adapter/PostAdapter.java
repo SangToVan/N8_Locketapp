@@ -7,15 +7,25 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.n8_locketapp.R;
 import com.example.n8_locketapp.databinding.ItemPostBinding;
+import com.example.n8_locketapp.ui.history.HistoryViewModel;
 
 import java.util.ArrayList;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder>{
+    private Fragment fragment;
     private ArrayList<String> listPosts = new ArrayList<>();
+    private HistoryViewModel historyViewModel;
+
+    public PostAdapter(Fragment fragment) {
+        this.fragment = fragment;
+        historyViewModel = new ViewModelProvider(fragment).get(HistoryViewModel.class);
+    }
 
     @NonNull
     @Override
@@ -34,6 +44,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
                         R.drawable.image
                 )
         );
+        holder.binding.image.setOnClickListener(view -> {
+            historyViewModel.flipStatus();
+            historyViewModel.setCurrentPos(position);
+        });
     }
 
     @Override
@@ -48,7 +62,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         notifyDataSetChanged();
     }
 
-    class PostViewHolder extends RecyclerView.ViewHolder {
+    static class PostViewHolder extends RecyclerView.ViewHolder {
         private ItemPostBinding binding;
 
         public PostViewHolder(@NonNull View view) {

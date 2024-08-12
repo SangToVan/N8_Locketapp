@@ -1,6 +1,7 @@
 package com.example.n8_locketapp.ui.history;
 
 import android.view.LayoutInflater;
+import android.view.View;
 
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -13,7 +14,6 @@ import com.example.n8_locketapp.databinding.FragmentHistoryBinding;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import carbon.view.View;
 
 public class HistoryFragment extends BaseFragment<FragmentHistoryBinding> {

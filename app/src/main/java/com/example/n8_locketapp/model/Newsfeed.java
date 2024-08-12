@@ -2,23 +2,23 @@ package com.example.n8_locketapp.model;
 
 import java.util.ArrayList;
 
-public class NewsFeed {
+public class Newsfeed {
     private String newsfeedId;
 
     private String userId;
 
     private ArrayList<String> posts = new ArrayList<>();
 
-    public NewsFeed() {
+    public Newsfeed() {
     }
 
-    public NewsFeed(String newsfeedId, String userId, ArrayList<String> posts) {
+    public Newsfeed(String newsfeedId, String userId, ArrayList<String> posts) {
         this.newsfeedId = newsfeedId;
         this.userId = userId;
         this.posts = posts;
     }
 
-    public NewsFeed(String userId) {
+    public Newsfeed(String userId) {
         this.userId = userId;
     }
 

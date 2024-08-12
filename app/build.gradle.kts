@@ -48,6 +48,8 @@ dependencies {
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
     implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-auth-ktx:22.3.0")
+    implementation("com.google.firebase:firebase-firestore")
 
     // Navigation graph
     implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
@@ -59,4 +61,13 @@ dependencies {
     // View model
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
+
+    // Cloudinary
+    implementation("com.cloudinary:cloudinary-android-core:2.5.0")
+
+    // Glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    // Lottie file
+    implementation("com.airbnb.android:lottie:6.1.0")
 }

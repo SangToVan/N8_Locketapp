@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:background="#101010"
     android:orientation="vertical"
-    android:paddingTop="45dp">
-<!--    tools:context=".ui.profile.EditUsernameFragment">-->
+    android:paddingTop="45dp"
+    tools:context=".ui.profile.EditUsernameFragment">
 
     <ImageButton
         android:id="@+id/btn_back"

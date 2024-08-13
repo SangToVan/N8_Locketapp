@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel;
 public class HistoryViewModel extends ViewModel {
     public MutableLiveData<Integer> currentPos = new MutableLiveData<>(0);
 
-    public MutableLiveData<Boolean> status = new MutableLiveData<>(true);
+    public MutableLiveData<Boolean> status = new MutableLiveData<>(false);
 
     public void flipStatus() {
         status.setValue(!status.getValue());

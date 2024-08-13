@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_nav.xml">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav">
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.n8_locketapp.ui.history.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
 
 </navigation>

@@ -1,13 +1,16 @@
 package com.example.n8_locketapp;
 
-import android.os.Bundle;
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.view.LayoutInflater;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import com.cloudinary.android.MediaManager;
+
+
+import java.util.HashMap;
 
 import com.example.n8_locketapp.base.BaseActivity;
 import com.example.n8_locketapp.databinding.ActivityMainBinding;
@@ -32,5 +35,25 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     @Override
     protected ActivityMainBinding inflateViewBinding(LayoutInflater inflater) {
         return ActivityMainBinding.inflate(inflater);
+    }
+
+    private void permission() {
+        boolean cameraPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED;
+        boolean storagePermission = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED;
+        if (cameraPermission && storagePermission) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+        } else if (cameraPermission) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
+        } else if (storagePermission) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+        }
+    }
+
+    private void cloudinaryConfig() {
+        HashMap<String, String> config = new HashMap<>();
+        config.put("cloud_name", "dh9ougddd");
+        config.put("api_key", "731328598728427");
+        config.put("api_secret", "9cayqFpAlaCGOnudfeaW-hGFsQ0");
+        MediaManager.init(this, config);
     }
 }

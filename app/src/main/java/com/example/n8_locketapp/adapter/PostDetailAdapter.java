@@ -48,11 +48,6 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Po
         holder.binding.imgPostContent.setText("One day");
         holder.binding.txtPostOwner.setText("To Sang");
         holder.binding.txtPostTimeCreated.setText(Integer.toString(position + 1) + "d");
-
-        holder.binding.btnGalery.setOnClickListener(view -> {
-            historyViewModel.flipStatus();
-            historyViewModel.setCurrentPos(position);
-        });
     }
 
     @Override

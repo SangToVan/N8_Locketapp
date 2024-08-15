@@ -3,8 +3,12 @@ package com.example.n8_locketapp.ui.profile;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.view.LayoutInflater;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -103,5 +107,18 @@ public class ProfileFragment extends BaseFragment<FragmentProfileBinding> {
     @Override
     protected FragmentProfileBinding inflateViewBinding(LayoutInflater inflater) {
         return FragmentProfileBinding.inflate(inflater);
+    }
+
+    private void showEditAvatarDialog() {
+        settingDialog.setContentView(dialogEditAvatarBinding.getRoot());
+
+        Window window = settingDialog.getWindow();
+        if (window != null) {
+            window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            window.setLayout(
+                    WindowManager.LayoutParams.MATCH_PARENT,
+                    WindowManager.LayoutParams.WRAP_CONTENT);
+        }
+        settingDialog.show();
     }
 }

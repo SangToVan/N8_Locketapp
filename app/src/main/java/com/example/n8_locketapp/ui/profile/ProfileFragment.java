@@ -88,7 +88,11 @@ public class ProfileFragment extends BaseFragment<FragmentProfileBinding> {
 
     @Override
     public void initView() {
-
+        String fullName = currentUser.getFirstName() + " " + currentUser.getLastName();
+        getBinding().txtUsername.setText(fullName);
+        Glide.with(getBinding().imgAvatar.getContext())
+                .load(currentUser.getAvatar())
+                .into(getBinding().imgAvatar);
     }
 
     @Override
@@ -98,6 +102,6 @@ public class ProfileFragment extends BaseFragment<FragmentProfileBinding> {
 
     @Override
     protected FragmentProfileBinding inflateViewBinding(LayoutInflater inflater) {
-        return null;
+        return FragmentProfileBinding.inflate(inflater);
     }
 }

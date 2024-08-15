@@ -13,7 +13,9 @@ import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.navigation.Navigation;
 
+import com.example.n8_locketapp.R;
 import com.cloudinary.android.MediaManager;
 import com.cloudinary.android.callback.UploadCallback;
 import com.cloudinary.android.callback.ErrorInfo;
@@ -101,7 +103,31 @@ public class ProfileFragment extends BaseFragment<FragmentProfileBinding> {
 
     @Override
     public void initEvent() {
+        getBinding().btnEditAvatar.setOnClickListener(view -> {
+            showEditAvatarDialog();
+        });
 
+        getBinding().btnEditUsername.setOnClickListener(view -> {
+            Navigation.findNavController(getView()).navigate(R.id.action_profileFragment_to_editUsernameFragment);
+        });
+
+        getBinding().btnSignOut.setOnClickListener(view -> {
+            MyApplication.clearUserId();
+            Navigation.findNavController(getView()).navigate(R.id.action_profileFragment_to_loginFragment);
+        });
+
+        getBinding().btnBack.setOnClickListener(view -> {
+            Navigation.findNavController(getView()).popBackStack();
+        });
+
+        dialogEditAvatarBinding.btnLibrary.setOnClickListener(view -> {
+            chooseImage();
+            settingDialog.dismiss();
+        });
+
+        dialogEditAvatarBinding.btnCancel.setOnClickListener(view -> {
+            settingDialog.dismiss();
+        });
     }
 
     @Override
@@ -120,5 +146,12 @@ public class ProfileFragment extends BaseFragment<FragmentProfileBinding> {
                     WindowManager.LayoutParams.WRAP_CONTENT);
         }
         settingDialog.show();
+    }
+
+    private void chooseImage() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        resultLauncher.launch(intent);
     }
 }

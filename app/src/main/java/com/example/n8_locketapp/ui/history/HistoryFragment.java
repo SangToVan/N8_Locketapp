@@ -12,15 +12,18 @@ import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.n8_locketapp.MyApplication;
 import com.example.n8_locketapp.R;
 import com.example.n8_locketapp.adapter.PostAdapter;
 import com.example.n8_locketapp.adapter.PostDetailAdapter;
 import com.example.n8_locketapp.base.BaseFragment;
 import com.example.n8_locketapp.databinding.FragmentHistoryBinding;
+import com.example.n8_locketapp.model.Newsfeed;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,6 +34,7 @@ public class HistoryFragment extends BaseFragment<FragmentHistoryBinding> {
     private PostAdapter postAdapter;
     private PostDetailAdapter postDetailAdapter;
     private HistoryViewModel historyViewModel;
+    private Newsfeed newsfeed;
 
     private int currentPosition = 0;
     private float itemHeight = 0F;
@@ -48,6 +52,7 @@ public class HistoryFragment extends BaseFragment<FragmentHistoryBinding> {
 
     @Override
     public void initView() {
+        newsfeed = MyApplication.getNewsfeed();
         getBinding().recyclerListPost.setLayoutManager(new GridLayoutManager(requireContext(), 3));
         getBinding().recyclerListPost.setAdapter(postAdapter);
         postAdapter.setListPosts(data);
@@ -62,8 +67,11 @@ public class HistoryFragment extends BaseFragment<FragmentHistoryBinding> {
             historyViewModel.setCurrentPos(Math.round(allPixels / itemHeight));
         });
 
-        getBinding().toolbar.btnPostSetting.setOnClickListener(view -> {
-            showSettingDialog();
+//        getBinding().toolbar.btnPostSetting.setOnClickListener(view -> {
+//            showSettingDialog();
+//        });
+        getBinding().toolbar.btnBack.setOnClickListener(view -> {
+            Navigation.findNavController(getView()).popBackStack();
         });
 
         historyViewModel.currentPos.observe(getViewLifecycleOwner(), position -> {
@@ -111,14 +119,14 @@ public class HistoryFragment extends BaseFragment<FragmentHistoryBinding> {
             recyclerListPost.setVisibility(carbon.view.View.VISIBLE);
             recyclerDetailPost.setVisibility(carbon.view.View.INVISIBLE);
             getBinding().bottomBar.setVisibility(carbon.view.View.INVISIBLE);
-            getBinding().toolbar.btnPostSetting.setVisibility(carbon.view.View.INVISIBLE);
+//            getBinding().toolbar.btnPostSetting.setVisibility(carbon.view.View.INVISIBLE);
         } else {
             fadeIn.setTarget(recyclerDetailPost);
             fadeOut.setTarget(recyclerListPost);
             recyclerListPost.setVisibility(carbon.view.View.INVISIBLE);
             recyclerDetailPost.setVisibility(carbon.view.View.VISIBLE);
             getBinding().bottomBar.setVisibility(carbon.view.View.VISIBLE);
-            getBinding().toolbar.btnPostSetting.setVisibility(View.VISIBLE);
+//            getBinding().toolbar.btnPostSetting.setVisibility(View.VISIBLE);
         }
         fadeIn.start();
         fadeOut.start();

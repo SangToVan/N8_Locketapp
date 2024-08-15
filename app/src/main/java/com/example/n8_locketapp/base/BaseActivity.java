@@ -8,15 +8,8 @@ import android.view.MotionEvent;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
-import androidx.activity.EdgeToEdge;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.viewbinding.ViewBinding;
-
-import com.example.n8_locketapp.R;
 
 public abstract class BaseActivity<VBinding extends ViewBinding> extends AppCompatActivity {
     private VBinding binding;

@@ -14,8 +14,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.n8_locketapp.R;
 import com.example.n8_locketapp.databinding.ItemPostBinding;
+import com.example.n8_locketapp.repository.PostRepository;
 import com.example.n8_locketapp.ui.history.HistoryViewModel;
 
 import java.util.ArrayList;
@@ -25,6 +27,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
     private Fragment fragment;
     private ArrayList<String> listPosts = new ArrayList<>();
     private HistoryViewModel historyViewModel;
+
+    private PostRepository postRepository = new PostRepository();
 
     public PostAdapter(Fragment fragment) {
         this.fragment = fragment;
@@ -42,12 +46,15 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
-        holder.binding.image.setImageDrawable(
-                AppCompatResources.getDrawable(
-                        holder.binding.image.getContext(),
-                        R.drawable.image
-                )
-        );
+        int sz = getItemCount();
+        if (sz == 0) return;
+        postRepository.getPostById(listPosts.get(sz - position - 1), it -> {
+            if (it.getData() != null) {
+                String image = (String) it.getData().get("image");
+                Glide.with(holder.binding.image.getContext())
+                        .load(image).into(holder.binding.image);
+            }
+        });
         holder.binding.imageContainer.setOnTouchListener((view, motionEvent) ->
                 onImageTouch(view, motionEvent, position)
         );

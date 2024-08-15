@@ -25,25 +25,24 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/varela"
             android:gravity="center"
-            android:text="All friends"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            android:src="@drawable/ic_back_down" />
+<!--        <ImageView-->
+<!--            android:layout_width="18dp"-->
+<!--            android:layout_height="18dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_margin="5dp"-->
+<!--            android:src="@drawable/ic_back_down" />-->
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/btn_post_setting"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_gravity="end"
-        android:layout_marginHorizontal="15dp"
-        android:background="@android:color/transparent"
-        android:src="@drawable/ic_more" />
+<!--    <ImageButton-->
+<!--        android:id="@+id/btn_post_setting"-->
+<!--        android:layout_width="48dp"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:layout_gravity="end"-->
+<!--        android:layout_marginHorizontal="15dp"-->
+<!--        android:background="@android:color/transparent"-->
+<!--        android:src="@drawable/ic_more" />-->
 </FrameLayout>

@@ -21,7 +21,6 @@ import com.cloudinary.android.callback.UploadCallback;
 import com.example.n8_locketapp.MyApplication;
 import com.example.n8_locketapp.R;
 import com.example.n8_locketapp.adapter.FriendChooseAdapter;
-import com.example.n8_locketapp.adapter.FriendChooseAdapter;
 import com.example.n8_locketapp.base.BaseFragment;
 import com.example.n8_locketapp.databinding.FragmentCameraBinding;
 import com.example.n8_locketapp.model.Newsfeed;

@@ -16,7 +16,6 @@ import com.example.n8_locketapp.databinding.FragmentEditUsernameBinding;
 import com.example.n8_locketapp.model.User;
 import com.example.n8_locketapp.repository.UserRepository;
 
-
 public class EditUsernameFragment extends BaseFragment<FragmentEditUsernameBinding> {
 
     private UserRepository userRepository = new UserRepository();

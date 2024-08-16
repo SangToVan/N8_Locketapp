@@ -70,6 +70,7 @@ public class HistoryFragment extends BaseFragment<FragmentHistoryBinding> {
 //        getBinding().toolbar.btnPostSetting.setOnClickListener(view -> {
 //            showSettingDialog();
 //        });
+
         getBinding().toolbar.btnBack.setOnClickListener(view -> {
             Navigation.findNavController(getView()).popBackStack();
         });
@@ -152,7 +153,6 @@ public class HistoryFragment extends BaseFragment<FragmentHistoryBinding> {
                         super.onScrollStateChanged(recyclerView, newState);
                         synchronized (this) {
                             if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                                calculatePositionAndScroll(recyclerView);
                                 currentPosition = Math.round(allPixels / itemHeight);
                                 calculatePositionAndScroll(recyclerView);
                             }

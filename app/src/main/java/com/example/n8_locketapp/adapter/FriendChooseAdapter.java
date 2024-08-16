@@ -10,8 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.n8_locketapp.R;
 import com.example.n8_locketapp.databinding.ItemFriendChooseBinding;
-import com.example.n8_locketapp.R;
-import com.example.n8_locketapp.databinding.ItemFriendChooseBinding;
 
 import java.util.ArrayList;
 

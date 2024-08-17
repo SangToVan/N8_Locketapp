@@ -52,9 +52,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     private void cloudinaryConfig() {
         HashMap<String, String> config = new HashMap<>();
-        config.put("cloud_name", "dh9ougddd");
-        config.put("api_key", "731328598728427");
-        config.put("api_secret", "9cayqFpAlaCGOnudfeaW-hGFsQ0");
+        config.put("cloud_name", "dnhxdubzr");
+        config.put("api_key", "327892482335459");
+        config.put("api_secret", "9T0p5bURodBwCpW_k3s469OU5Bc");
         MediaManager.init(this, config);
     }
 }

@@ -24,7 +24,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     @Override
     public void handleEvent() {
-
+        permission();
+        cloudinaryConfig();
     }
 
     @Override

@@ -55,7 +55,7 @@ public class HistoryFragment extends BaseFragment<FragmentHistoryBinding> {
         newsfeed = MyApplication.getNewsfeed();
         getBinding().recyclerListPost.setLayoutManager(new GridLayoutManager(requireContext(), 3));
         getBinding().recyclerListPost.setAdapter(postAdapter);
-        postAdapter.setListPosts(data);
+        postAdapter.setListPosts(newsfeed.getPosts());
 
         getRecyclerPostDetail();
     }
@@ -170,7 +170,7 @@ public class HistoryFragment extends BaseFragment<FragmentHistoryBinding> {
                 });
 
                 recyclerDetail.setAdapter(postDetailAdapter);
-                postDetailAdapter.setListPosts(data);
+                postDetailAdapter.setListPosts(newsfeed.getPosts());
                 return true;
             }
         });

@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "924966708138",
-    "project_id": "locket-clone-9b9e8",
-    "storage_bucket": "locket-clone-9b9e8.appspot.com"
+    "project_number": "351851232178",
+    "project_id": "n8locketapp-fe069",
+    "storage_bucket": "n8locketapp-fe069.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:924966708138:android:7e8b1688c931a63aac41d3",
+        "mobilesdk_app_id": "1:351851232178:android:3d5f612e95b1f1ccad42ab",
         "android_client_info": {
-          "package_name": "com.example.locketclone"
+          "package_name": "com.example.n8_locketapp"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDuJ_YCgHDjbRr5Mtki2Z--NbKkRlI30b4"
+          "current_key": "AIzaSyD0iXbV5KF0xkzJ2uvnZep8cgVJqYmvihk"
         }
       ],
       "services": {

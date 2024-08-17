@@ -13,7 +13,7 @@ public class User {
 
     private String lastName;
 
-    private String avatar = "https://res.cloudinary.com/dh9ougddd/image/upload/v1693305148/m1nhqsruh3ydexbr0wqq.webp";
+    private String avatar = "https://res.cloudinary.com/dnhxdubzr/image/upload/v1723812142/cld-sample-2.jpg";
 
     private String phone;
 

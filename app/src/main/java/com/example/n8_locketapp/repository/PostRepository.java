@@ -41,17 +41,24 @@ public class PostRepository {
     }
 
     public void updatePostEmoji(String postId, String userId, Long react, UserOnComplete task) {
-        Map<String, Long> map = new HashMap<>();
-        map.put(userId, react);
-        firebaseStore.collection("react")
-                .document(postId)
-                .set(map, SetOptions.merge())
-                .addOnCompleteListener(task::onComplete);
+        DocumentReference docRef = firebaseStore.collection("react").document(postId);
+
+        docRef.get().addOnSuccessListener(documentSnapshot -> {
+            Map<String, Long> existingReactions = (Map<String, Long>) documentSnapshot.get("reactions");
+
+            if (existingReactions == null) {
+                existingReactions = new HashMap<>();
+            }
+
+            existingReactions.put(userId, react);
+
+            docRef.set(existingReactions, SetOptions.merge())
+                    .addOnCompleteListener(task::onComplete);
+        });
     }
 
     public void addPostToNewsfeed(ArrayList<String> userIds, String postId) {
-        for (String userId :
-                userIds) {
+        for (String userId : userIds) {
             firebaseStore.collection("newsfeed")
                     .whereEqualTo("userId", userId)
                     .get()

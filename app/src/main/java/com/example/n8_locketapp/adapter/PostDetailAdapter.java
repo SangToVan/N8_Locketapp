@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.n8_locketapp.MyApplication;
 import com.example.n8_locketapp.R;
 import com.example.n8_locketapp.databinding.ItemPostDetailBinding;
 import com.example.n8_locketapp.repository.PostRepository;
@@ -29,6 +30,8 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Po
     private PostRepository postRepository = new PostRepository();
 
     private UserRepository userRepository = new UserRepository();
+
+    private String currentUserId = MyApplication.getUser().getUserId();
 
     public PostDetailAdapter(Fragment fragment) {
         this.fragment = fragment;
@@ -88,7 +91,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Po
                         holder.binding.btnEmojiFive.setBackgroundResource(R.drawable.bg_emoji_disable);
 
                         data.forEach((key, value) -> {
-                            if (key.equals(userId)) {
+                            if (key.equals(currentUserId)) {
                                 if ((Long) value == 1)
                                     holder.binding.btnEmojiOne.setBackgroundResource(R.drawable.bg_emoji_enable);
                                 else if ((Long) value == 2)
@@ -111,7 +114,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Po
                 });
 
                 holder.binding.btnEmojiOne.setOnClickListener(view -> {
-                    postRepository.updatePostEmoji(postId, userId, 1L, v -> {
+                    postRepository.updatePostEmoji(postId, currentUserId, 1L, v -> {
                         postRepository.getPostReaction(postId, it1 -> {
                             int[] cnt = {0, 0, 0, 0, 0};
                             Map<String, Object> data = it1.getData();
@@ -123,7 +126,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Po
                                 holder.binding.btnEmojiFive.setBackgroundResource(R.drawable.bg_emoji_disable);
 
                                 data.forEach((key, value) -> {
-                                    if (key.equals(userId)) {
+                                    if (key.equals(currentUserId)) {
                                         if ((Long) value == 1)
                                             holder.binding.btnEmojiOne.setBackgroundResource(R.drawable.bg_emoji_enable);
                                         else if ((Long) value == 2)
@@ -148,7 +151,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Po
                 });
 
                 holder.binding.btnEmojiTwo.setOnClickListener(view -> {
-                    postRepository.updatePostEmoji(postId, userId, 2L, v -> {
+                    postRepository.updatePostEmoji(postId, currentUserId, 2L, v -> {
                         postRepository.getPostReaction(postId, it1 -> {
                             int[] cnt = {0, 0, 0, 0, 0};
                             Map<String, Object> data = it1.getData();
@@ -160,7 +163,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Po
                                 holder.binding.btnEmojiFive.setBackgroundResource(R.drawable.bg_emoji_disable);
 
                                 data.forEach((key, value) -> {
-                                    if (key.equals(userId)) {
+                                    if (key.equals(currentUserId)) {
                                         if ((Long) value == 1)
                                             holder.binding.btnEmojiOne.setBackgroundResource(R.drawable.bg_emoji_enable);
                                         else if ((Long) value == 2)
@@ -185,7 +188,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Po
                 });
 
                 holder.binding.btnEmojiThree.setOnClickListener(view -> {
-                    postRepository.updatePostEmoji(postId, userId, 3L, v -> {
+                    postRepository.updatePostEmoji(postId, currentUserId, 3L, v -> {
                         postRepository.getPostReaction(postId, it1 -> {
                             int[] cnt = {0, 0, 0, 0, 0};
                             Map<String, Object> data = it1.getData();
@@ -197,7 +200,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Po
                                 holder.binding.btnEmojiFive.setBackgroundResource(R.drawable.bg_emoji_disable);
 
                                 data.forEach((key, value) -> {
-                                    if (key.equals(userId)) {
+                                    if (key.equals(currentUserId)) {
                                         if ((Long) value == 1)
                                             holder.binding.btnEmojiOne.setBackgroundResource(R.drawable.bg_emoji_enable);
                                         else if ((Long) value == 2)
@@ -222,7 +225,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Po
                 });
 
                 holder.binding.btnEmojiFour.setOnClickListener(view -> {
-                    postRepository.updatePostEmoji(postId, userId, 4L, v -> {
+                    postRepository.updatePostEmoji(postId, currentUserId, 4L, v -> {
                         postRepository.getPostReaction(postId, it1 -> {
                             int[] cnt = {0, 0, 0, 0, 0};
                             Map<String, Object> data = it1.getData();
@@ -234,7 +237,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Po
                                 holder.binding.btnEmojiFive.setBackgroundResource(R.drawable.bg_emoji_disable);
 
                                 data.forEach((key, value) -> {
-                                    if (key.equals(userId)) {
+                                    if (key.equals(currentUserId)) {
                                         if ((Long) value == 1)
                                             holder.binding.btnEmojiOne.setBackgroundResource(R.drawable.bg_emoji_enable);
                                         else if ((Long) value == 2)
@@ -259,7 +262,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Po
                 });
 
                 holder.binding.btnEmojiFive.setOnClickListener(view -> {
-                    postRepository.updatePostEmoji(postId, userId, 5L, v -> {
+                    postRepository.updatePostEmoji(postId, currentUserId, 5L, v -> {
                         postRepository.getPostReaction(postId, it1 -> {
                             int[] cnt = {0, 0, 0, 0, 0};
                             Map<String, Object> data = it1.getData();
@@ -271,7 +274,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.Po
                                 holder.binding.btnEmojiFive.setBackgroundResource(R.drawable.bg_emoji_disable);
 
                                 data.forEach((key, value) -> {
-                                    if (key.equals(userId)) {
+                                    if (key.equals(currentUserId)) {
                                         if ((Long) value == 1)
                                             holder.binding.btnEmojiOne.setBackgroundResource(R.drawable.bg_emoji_enable);
                                         else if ((Long) value == 2)

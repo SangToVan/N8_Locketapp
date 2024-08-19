@@ -29,6 +29,7 @@ public class UserRepository {
                 .document(userId)
                 .set(user, SetOptions.merge())
                 .addOnCompleteListener(task::onComplete);
+        //
     }
 
     public void getUserById(String userId, UserOnSuccess task) {
